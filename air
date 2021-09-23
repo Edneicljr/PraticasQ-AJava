@@ -1,0 +1,304 @@
+[33mcommit cdda8e3b5c01655b9344076b3365dad9605ffbb6[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Your Name <you@example.com>
+Date:   Thu Sep 23 16:25:02 2021 -0300
+
+    MÃ©todos com ParÃ¢metros Java
+
+[1mdiff --git a/AutomatizadoWebJava/.project b/AutomatizadoWebJava/.project[m
+[1mindex 85a8c5f..3d3ddfa 100644[m
+[1m--- a/AutomatizadoWebJava/.project[m
+[1m+++ b/AutomatizadoWebJava/.project[m
+[36m@@ -15,8 +15,19 @@[m
+ 			<arguments>[m
+ 			</arguments>[m
+ 		</buildCommand>[m
+[32m+[m		[32m<buildCommand>[m
+[32m+[m			[32m<name>cucumber.eclipse.builder.stepdefinition</name>[m
+[32m+[m			[32m<arguments>[m
+[32m+[m			[32m</arguments>[m
+[32m+[m		[32m</buildCommand>[m
+[32m+[m		[32m<buildCommand>[m
+[32m+[m			[32m<name>cucumber.eclipse.builder.gherkin</name>[m
+[32m+[m			[32m<arguments>[m
+[32m+[m			[32m</arguments>[m
+[32m+[m		[32m</buildCommand>[m
+ 	</buildSpec>[m
+ 	<natures>[m
+[32m+[m		[32m<nature>cucumber.eclipse.nature</nature>[m
+ 		<nature>org.eclipse.jdt.core.javanature</nature>[m
+ 		<nature>org.eclipse.m2e.core.maven2Nature</nature>[m
+ 	</natures>[m
+[1mdiff --git a/AutomatizadoWebJava/src/test/java/runners/RunnerTest.java b/AutomatizadoWebJava/src/test/java/runners/RunnerTest.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5e26676[m
+[1m--- /dev/null[m
+[1m+++ b/AutomatizadoWebJava/src/test/java/runners/RunnerTest.java[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32mpackage runners;[m
+[32m+[m
+[32m+[m[32mimport org.junit.runner.RunWith;[m
+[32m+[m
+[32m+[m[32mimport io.cucumber.junit.Cucumber;[m
+[32m+[m[32mimport io.cucumber.junit.CucumberOptions;[m
+[32m+[m
+[32m+[m[32m@RunWith(Cucumber.class)[m
+[32m+[m[32m@CucumberOptions([m
+[32m+[m		[32mfeatures = "src/test/resources/features",[m
+[32m+[m		[32mglue = "stepsDefinitions"[m[41m			[m
+[32m+[m		[32m)[m
+[32m+[m
+[32m+[m
+[32m+[m[32mpublic class RunnerTest {[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/AutomatizadoWebJava/src/test/java/stepsDefinitions/Hooks.java b/AutomatizadoWebJava/src/test/java/stepsDefinitions/Hooks.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fa0542d[m
+[1m--- /dev/null[m
+[1m+++ b/AutomatizadoWebJava/src/test/java/stepsDefinitions/Hooks.java[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32mpackage stepsDefinitions;[m
+[32m+[m
+[32m+[m[32mpublic class Hooks {[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/AutomatizadoWebJava/src/test/java/stepsDefinitions/TesteSteps.java b/AutomatizadoWebJava/src/test/java/stepsDefinitions/TesteSteps.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ab719db[m
+[1m--- /dev/null[m
+[1m+++ b/AutomatizadoWebJava/src/test/java/stepsDefinitions/TesteSteps.java[m
+[36m@@ -0,0 +1,18 @@[m
+[32m+[m[32mpackage stepsDefinitions;[m
+[32m+[m
+[32m+[m[32mimport io.cucumber.java.pt.Dado;[m
+[32m+[m[32mimport static utils.Utils.*;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mpublic class TesteSteps {[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m	[32m@Dado("que eu estou acessando o sistema")[m
+[32m+[m	[32mpublic void que_eu_estou_acessando_o_sistema()[m
+[32m+[m	[32m{[m
+[32m+[m		[32macessarSistema();[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[1mdiff --git a/AutomatizadoWebJava/src/test/java/utilis/Utilis.java b/AutomatizadoWebJava/src/test/java/utilis/Utilis.java[m
+[1mdeleted file mode 100644[m
+[1mindex f38f101..0000000[m
+[1m--- a/AutomatizadoWebJava/src/test/java/utilis/Utilis.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,13 +0,0 @@[m
+[31m-package utilis;[m
+[31m-[m
+[31m-import org.openqa.selenium.WebDriver;[m
+[31m-[m
+[31m-public class Utilis {[m
+[31m-	[m
+[31m-	public static WebDriver driver;[m
+[31m-	[m
+[31m-	public static void acessarSistema() {[m
+[31m-		[m
+[31m-	}[m
+[31m-[m
+[31m-}[m
+[1mdiff --git a/AutomatizadoWebJava/src/test/java/utils/Utils.java b/AutomatizadoWebJava/src/test/java/utils/Utils.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e857a85[m
+[1m--- /dev/null[m
+[1m+++ b/AutomatizadoWebJava/src/test/java/utils/Utils.java[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32mpackage utils;[m
+[32m+[m
+[32m+[m[32mimport java.util.concurrent.TimeUnit;[m
+[32m+[m
+[32m+[m[32mimport org.openqa.selenium.WebDriver;[m
+[32m+[m[32mimport org.openqa.selenium.chrome.ChromeDriver;[m
+[32m+[m
+[32m+[m[32mpublic class Utils {[m
+[32m+[m[41m	[m
+[32m+[m	[32mpublic static WebDriver driver;[m
+[32m+[m[41m	[m
+[32m+[m	[32mpublic static void acessarSistema() {[m
+[32m+[m[41m	[m
+[32m+[m		[32mSystem.setProperty("webdriver.chrome.driver", "C:\\driver\\chromedriver.exe");[m
+[32m+[m		[32mdriver = new ChromeDriver();[m
+[32m+[m		[32mdriver.manage().window().maximize();[m
+[32m+[m		[32mdriver.manage().timeouts().implicitlyWait(5,  TimeUnit.SECONDS);[m
+[32m+[m[41m		[m
+[32m+[m		[32mdriver.get("https://opensource-demo.orangehrmlive.com/");[m
+[32m+[m	[32m}[m
+[32m+[m[41m	[m
+[32m+[m[32m}[m
+[1mdiff --git a/AutomatizadoWebJava/src/test/resources/features/teste.feature b/AutomatizadoWebJava/src/test/resources/features/teste.feature[m
+[1mnew file mode 100644[m
+[1mindex 0000000..267096d[m
+[1m--- /dev/null[m
+[1m+++ b/AutomatizadoWebJava/src/test/resources/features/teste.feature[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m#language : pt[m
+[32m+[m[32m# encoding: UTF-8[m
+[32m+[m[32mFuncionalidade: Acessar Sistema[m
+[32m+[m
+[32m+[m[32m  Cenario: Acessar o sistema[m
+[32m+[m[32m    Dado que eu estou acessando o sistema[m
+[1mdiff --git a/AutomatizadoWebJava/target/classes/.cucumber/cucumber.glue.tmp b/AutomatizadoWebJava/target/classes/.cucumber/cucumber.glue.tmp[m
+[1mnew file mode 100644[m
+[1mindex 0000000..92c9047[m
+Binary files /dev/null and b/AutomatizadoWebJava/target/classes/.cucumber/cucumber.glue.tmp differ
+[1mdiff --git a/AutomatizadoWebJava/target/classes/.cucumber/cucumber.stepDefinitions.tmp b/AutomatizadoWebJava/target/classes/.cucumber/cucumber.stepDefinitions.tmp[m
+[1mnew file mode 100644[m
+[1mindex 0000000..44ac6e7[m
+Binary files /dev/null and b/AutomatizadoWebJava/target/classes/.cucumber/cucumber.stepDefinitions.tmp differ
+[1mdiff --git a/AutomatizadoWebJava/target/test-classes/features/teste.feature b/AutomatizadoWebJava/target/test-classes/features/teste.feature[m
+[1mnew file mode 100644[m
+[1mindex 0000000..267096d[m
+[1m--- /dev/null[m
+[1m+++ b/AutomatizadoWebJava/target/test-classes/features/teste.feature[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m#language : pt[m
+[32m+[m[32m# encoding: UTF-8[m
+[32m+[m[32mFuncionalidade: Acessar Sistema[m
+[32m+[m
+[32m+[m[32m  Cenario: Acessar o sistema[m
+[32m+[m[32m    Dado que eu estou acessando o sistema[m
+[1mdiff --git a/AutomatizadoWebJava/target/test-classes/runners/RunnerTest.class b/AutomatizadoWebJava/target/test-classes/runners/RunnerTest.class[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8e58101[m
+Binary files /dev/null and b/AutomatizadoWebJava/target/test-classes/runners/RunnerTest.class differ
+[1mdiff --git a/AutomatizadoWebJava/target/test-classes/stepsDefinitions/Hooks.class b/AutomatizadoWebJava/target/test-classes/stepsDefinitions/Hooks.class[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3ce1ba6[m
+Binary files /dev/null and b/AutomatizadoWebJava/target/test-classes/stepsDefinitions/Hooks.class differ
+[1mdiff --git a/AutomatizadoWebJava/target/test-classes/stepsDefinitions/TesteSteps.class b/AutomatizadoWebJava/target/test-classes/stepsDefinitions/TesteSteps.class[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4caf8a2[m
+Binary files /dev/null and b/AutomatizadoWebJava/target/test-classes/stepsDefinitions/TesteSteps.class differ
+[1mdiff --git a/AutomatizadoWebJava/target/test-classes/utilis/Utilis.class b/AutomatizadoWebJava/target/test-classes/utilis/Utilis.class[m
+[1mdeleted file mode 100644[m
+[1mindex e6f31f8..0000000[m
+Binary files a/AutomatizadoWebJava/target/test-classes/utilis/Utilis.class and /dev/null differ
+[1mdiff --git a/AutomatizadoWebJava/target/test-classes/utils/Utils.class b/AutomatizadoWebJava/target/test-classes/utils/Utils.class[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1e953ed[m
+Binary files /dev/null and b/AutomatizadoWebJava/target/test-classes/utils/Utils.class differ
+[1mdiff --git "a/Demonstra\303\247\303\243o/.classpath" "b/Demonstra\303\247\303\243o/.classpath"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..51a8bba[m
+[1m--- /dev/null[m
+[1m+++ "b/Demonstra\303\247\303\243o/.classpath"[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<classpath>[m
+[32m+[m	[32m<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>[m
+[32m+[m	[32m<classpathentry kind="src" path="src"/>[m
+[32m+[m	[32m<classpathentry kind="output" path="bin"/>[m
+[32m+[m[32m</classpath>[m
+[1mdiff --git "a/Demonstra\303\247\303\243o/.gitignore" "b/Demonstra\303\247\303\243o/.gitignore"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ae3c172[m
+[1m--- /dev/null[m
+[1m+++ "b/Demonstra\303\247\303\243o/.gitignore"[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m/bin/[m
+[1mdiff --git "a/Demonstra\303\247\303\243o/.project" "b/Demonstra\303\247\303\243o/.project"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..07a3816[m
+[1m--- /dev/null[m
+[1m+++ "b/Demonstra\303\247\303\243o/.project"[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<projectDescription>[m
+[32m+[m	[32m<name>DemonstraÃ§Ã£o</name>[m
+[32m+[m	[32m<comment></comment>[m
+[32m+[m	[32m<projects>[m
+[32m+[m	[32m</projects>[m
+[32m+[m	[32m<buildSpec>[m
+[32m+[m		[32m<buildCommand>[m
+[32m+[m			[32m<name>org.eclipse.jdt.core.javabuilder</name>[m
+[32m+[m			[32m<arguments>[m
+[32m+[m			[32m</arguments>[m
+[32m+[m		[32m</buildCommand>[m
+[32m+[m	[32m</buildSpec>[m
+[32m+[m	[32m<natures>[m
+[32m+[m		[32m<nature>org.eclipse.jdt.core.javanature</nature>[m
+[32m+[m	[32m</natures>[m
+[32m+[m[32m</projectDescription>[m
+[1mdiff --git "a/Demonstra\303\247\303\243o/.settings/org.eclipse.jdt.core.prefs" "b/Demonstra\303\247\303\243o/.settings/org.eclipse.jdt.core.prefs"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ec1937b[m
+[1m--- /dev/null[m
+[1m+++ "b/Demonstra\303\247\303\243o/.settings/org.eclipse.jdt.core.prefs"[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32meclipse.preferences.version=1[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.codegen.unusedLocal=preserve[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.compliance=1.8[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.debug.lineNumber=generate[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.debug.localVariable=generate[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.debug.sourceFile=generate[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.problem.assertIdentifier=error[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.problem.enumIdentifier=error[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.release=disabled[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.source=1.8[m
+[1mdiff --git "a/Demonstra\303\247\303\243o/src/Demonstra\303\247\303\243o/ClassPrincipal.java" "b/Demonstra\303\247\303\243o/src/Demonstra\303\247\303\243o/ClassPrincipal.java"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8fc456b[m
+[1m--- /dev/null[m
+[1m+++ "b/Demonstra\303\247\303\243o/src/Demonstra\303\247\303\243o/ClassPrincipal.java"[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32mpackage Demonstração;[m
+[32m+[m
+[32m+[m[32mpublic class ClassPrincipal {[m
+[32m+[m
+[32m+[m	[32mpublic static void main(String[] args) {[m
+[32m+[m[32m//[m[41m		[m
+[32m+[m[32m//		int numero = 1;[m
+[32m+[m[32m//		float decimal = 10.4f;[m
+[32m+[m[32m//		String nome = "Ednêi";[m
+[32m+[m[32m//		boolean verdade = true;[m
+[32m+[m[32m//		boolean mentira = false;[m
+[32m+[m[41m		[m
+[32m+[m		[32mExemplos metodos = new Exemplos();[m
+[32m+[m[41m		[m
+[32m+[m		[32mmetodos.somar();[m
+[32m+[m		[32mmetodos.multiplicar();[m
+[32m+[m[41m			[m
+[32m+[m	[32m}[m
+[32m+[m[41m	[m
+[32m+[m[41m	[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git "a/Demonstra\303\247\303\243o/src/Demonstra\303\247\303\243o/Exemplos.java" "b/Demonstra\303\247\303\243o/src/Demonstra\303\247\303\243o/Exemplos.java"[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2576956[m
+[1m--- /dev/null[m
+[1m+++ "b/Demonstra\303\247\303\243o/src/Demonstra\303\247\303\243o/Exemplos.java"[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32mpackage Demonstração;[m
+[32m+[m
+[32m+[m[32mpublic class Exemplos {[m
+[32m+[m
+[32m+[m			[32mpublic void somar () {[m
+[32m+[m			[32mint numero1 = 5;[m
+[32m+[m			[32mint numero2 = 7;[m
+[32m+[m[41m			[m
+[32m+[m			[32mint resultado = numero1 + numero2;[m
+[32m+[m			[32mSystem.out.println(resultado);[m
+[32m+[m[41m			[m
+[32m+[m		[32m}[m
+[32m+[m[41m			[m
+[32m+[m			[32mpublic void multiplicar () {[m
+[32m+[m				[32mint numero1 = 5;[m
+[32m+[m				[32mint numero2 = 7;[m
+[32m+[m[41m				[m
+[32m+[m				[32mint resultado = numero1 * numero2;[m
+[32m+[m				[32mSystem.out.println(resultado);[m
+[32m+[m[41m				[m
+[32m+[m			[32m}[m
+[32m+[m[41m		[m
+[32m+[m[32m}[m

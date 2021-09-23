@@ -12,8 +12,9 @@ public class ClassPrincipal {
 		
 		Exemplos metodos = new Exemplos();
 		
-		metodos.somar();
-		metodos.multiplicar();
+		metodos.somar(4,4);
+		metodos.multiplicar(4,4);
+		metodos.nome("Ednêi");
 			
 	}
 	
