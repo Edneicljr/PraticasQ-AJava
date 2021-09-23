@@ -12,7 +12,7 @@ public class ClassPrincipal {
 		
 		Exemplos metodos = new Exemplos();
 		
-		metodos.somar(4,4);
+		System.out.println(metodos.somar());
 		metodos.multiplicar(4,4);
 		metodos.nome("Ednêi");
 			
