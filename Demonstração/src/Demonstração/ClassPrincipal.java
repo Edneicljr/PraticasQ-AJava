@@ -12,7 +12,7 @@ public class ClassPrincipal {
 		
 		Exemplos metodos = new Exemplos();
 		
-		metodos.exemploIF();
+		metodos.exemploFOR();
 			
 	}
 	

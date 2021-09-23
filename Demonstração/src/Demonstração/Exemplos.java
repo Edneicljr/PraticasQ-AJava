@@ -8,11 +8,12 @@ public class Exemplos {
 	int numero1 = 3;
 	int numero2 = 2;
 	
-			public void exemploIF() {
+			public void exemploFOR() {
 			
-				if(verdadeiro || dePe) {
-					System.out.println("foi uma condição verdadeira");
-				}
+			for (int i =0; i < 5; i++)
+			{
+			System.out.println(5);
+			}
 			
 				
 			}
